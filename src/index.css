@@ -1,0 +1,352 @@
+:root {
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, sans-serif;
+  color: #f4f6f8;
+  background-color: #0e1116;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Upload Screen */
+.upload-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background-color: #0b1120;
+  overflow: hidden;
+}
+
+.upload-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.upload-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 480px;
+  padding: 36px 32px;
+  border-radius: 16px;
+  background: rgba(12, 17, 30, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+  text-align: center;
+  backdrop-filter: blur(12px);
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #ffffff;
+}
+
+.tagline {
+  margin-top: 6px;
+  margin-bottom: 28px;
+  font-size: 0.8rem;
+  letter-spacing: 0.24em;
+  color: #9bb1cf;
+}
+
+.dropzone {
+  border: 2px dashed rgba(143, 163, 191, 0.38);
+  border-radius: 12px;
+  padding: 32px 20px;
+  cursor: pointer;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.dropzone.dragging,
+.dropzone:hover {
+  border-color: #5ea8ff;
+  background: rgba(94, 168, 255, 0.08);
+}
+
+.dropzone-text {
+  font-size: 0.95rem;
+  color: #cfd9e6;
+  margin-bottom: 14px;
+}
+
+.btn {
+  display: inline-block;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.1s, opacity 0.2s, background-color 0.2s;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.btn-primary {
+  width: 100%;
+  margin-top: 20px;
+  padding: 13px 20px;
+  background: #4b96ff;
+  color: #08111e;
+  letter-spacing: 0.08em;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #67a7ff;
+}
+
+.file-info {
+  margin-top: 18px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.88rem;
+}
+
+.file-name {
+  color: #ffffff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.file-duration {
+  color: #8fa3bf;
+  flex-shrink: 0;
+}
+
+.error-msg {
+  margin-top: 14px;
+  color: #ff7b7b;
+  font-size: 0.85rem;
+}
+
+.loading-row {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #9ec5ff;
+  font-size: 0.9rem;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(158, 197, 255, 0.25);
+  border-top-color: #9ec5ff;
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Explore Screen */
+.explore-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.canvas-mount {
+  width: 100%;
+  height: 100%;
+}
+
+.hud-top-left {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: rgba(14, 17, 22, 0.76);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(6px);
+  width: 340px;
+  pointer-events: auto;
+}
+
+.hud-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hud-meta {
+  margin-top: 4px;
+  font-size: 0.78rem;
+  color: #a9b9ce;
+}
+
+.progress-track {
+  margin-top: 10px;
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.progress-track:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: #67a7ff;
+  transition: width 0.15s linear;
+}
+
+.feature-meters {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.feature-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.feature-label {
+  width: 96px;
+  font-size: 0.7rem;
+  color: #9fb0c7;
+  flex-shrink: 0;
+}
+
+.feature-bar-bg {
+  flex: 1;
+  height: 5px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.feature-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: #8cc2ff;
+  transition: width 0.25s ease, background-color 0.25s ease;
+}
+
+.hud-actions {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.hud-btn {
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 6px 9px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+}
+
+.hud-btn:hover {
+  background: rgba(255, 255, 255, 0.24);
+}
+
+.hud-btn-active {
+  background: rgba(75, 150, 255, 0.35);
+  border-color: rgba(118, 178, 255, 0.65);
+}
+
+.hud-bottom-left {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: rgba(14, 17, 22, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.78rem;
+  color: #cfd9e6;
+  line-height: 1.5;
+  pointer-events: none;
+}
+
+.lock-prompt {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 14px 24px;
+  border-radius: 10px;
+  background: rgba(14, 17, 22, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  pointer-events: none;
+}
+
+.crosshair {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.75);
+  pointer-events: none;
+}
